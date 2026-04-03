@@ -1,19 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   const cake = document.querySelector(".cake");
-  // const candleCountDisplay = document.getElementById("candleCount"); // dihapus
   let candles = [];
   let audioContext;
   let analyser;
   let microphone;
+  let allCandlesOut = false;
 
   const happyBirthdayMessage = document.createElement("h1");
+  happyBirthdayMessage.className = "happy-birthday";
   happyBirthdayMessage.textContent = "Happy Birthday Odi Sayang!";
-  happyBirthdayMessage.style.textAlign = "center";
-  happyBirthdayMessage.style.color = "#ff69b4";
-  happyBirthdayMessage.style.marginBottom = "20px";
   document.body.insertBefore(happyBirthdayMessage, document.body.firstChild);
-
-  // function updateCandleCount() { ... } dihapus
 
   function addCandle(left, top) {
     const candle = document.createElement("div");
@@ -27,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cake.appendChild(candle);
     candles.push(candle);
-    // updateCandleCount(); // dihapus
   }
 
   cake.addEventListener("click", function (event) {
@@ -38,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function isBlowing() {
+    if (!analyser) return false;
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
     analyser.getByteFrequencyData(dataArray);
@@ -51,19 +47,39 @@ document.addEventListener("DOMContentLoaded", function () {
     return average > 40;
   }
 
-  function blowOutCandles() {
-    let blownOut = 0;
+  function checkAllCandlesOut() {
+    return candles.length > 0 && candles.every(candle => candle.classList.contains("out"));
+  }
 
+  function showLoveLetter() {
+    const letter = document.createElement("div");
+    letter.className = "love-letter";
+    letter.innerHTML = `
+      <div class="letter-content">
+        <h2>💝 Untuk Odi Sayang 💝</h2>
+        <p>Hari spesial ini adalah hari yang tepat untuk memberitahu bahwa kamu membuat hidupku lebih indah dan bermakna.</p>
+        <p>Setiap momen bersamamu adalah hadiah terbaik yang bisa aku terima. Semoga hari ini membawamu kebahagiaan yang tak terlupakan.</p>
+        <p>Selamat ulang tahun, sayang! 🎂✨</p>
+        <p>Dengan sepenuh cinta,</p>
+        <p>❤️</p>
+      </div>
+    `;
+    document.body.appendChild(letter);
+  }
+
+  function blowOutCandles() {
     if (isBlowing()) {
       candles.forEach((candle) => {
         if (!candle.classList.contains("out") && Math.random() > 0.5) {
           candle.classList.add("out");
-          blownOut++;
         }
       });
-    }
 
-    // tidak perlu updateCandleCount lagi
+      if (!allCandlesOut && checkAllCandlesOut()) {
+        allCandlesOut = true;
+        setTimeout(showLoveLetter, 1000);
+      }
+    }
   }
 
   if (navigator.mediaDevices.getUserMedia) {
