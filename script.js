@@ -56,12 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
     letter.className = "love-letter";
     letter.innerHTML = `
       <div class="letter-content">
-        <h2>💝 Untuk Odi Sayang 💝</h2>
-        <p>Hari spesial ini adalah hari yang tepat untuk memberitahu bahwa kamu membuat hidupku lebih indah dan bermakna.</p>
-        <p>Setiap momen bersamamu adalah hadiah terbaik yang bisa aku terima. Semoga hari ini membawamu kebahagiaan yang tak terlupakan.</p>
-        <p>Selamat ulang tahun, sayang! 🎂✨</p>
-        <p>Dengan sepenuh cinta,</p>
-        <p>❤️</p>
+        <h2> Untuk Kesayanganku, Odi </h2>
+        <p>Selamat ulang tahun sayang, hari ini mungkin cuma hari biasa untuk orang lain, tapi hari ini adalah hari dimana seseorang yang sangat berarti dan berharga buat aku dan sekelilingnya hadir ke dunia.</p>
+        <p>Dan sejak itu, tanpa kamu sadari, kamu membawa kebahagiaan, ketenangan, energi positif, dan makna buat orang orang di sekitar kamu, terima kasih sudah menjadi yang terbaik buat orang orang di sekelilingmu yang bahkan kamu ga sadari.</p>
+        <p>Terima kasih sudah bertahan sejauh ini sayang, terima kasih karena kamu ga menyerah dengan kehidupan kamu yang kadang ga mudah buat dijalanin. Terima kasih selalu ada buat orang orang saat mereka butuh kamu bahkan di saat kamu sendiri sedang butuh bantuan, terima kasih kamu udah jadi diri kamu sendiri.</p>
+        <p>Di umur kamu yang sekarang, aku ga berharap yang berlebihan, aku cuma mau kamu di kelilingi hal hal yang baik,semoga kamu selalu di beri kesehatan, semoga kamu selalu punya alasan buat tersenyum bahkan di hari yang berat, semoga kamu di beri kekuatan saat lelah, dan ga pernah merasa sendirian karena aku ada dengan caraku sendiri.</p>
+        <p>Apapun doa doa kamu semoga terkabulkan.</p>
+        <p>Sekali lagi selamat ulang tahun, sayang! </p>
+        <p>Terima kasih sudah jadi kamu.🤍</p>
       </div>
     `;
     document.body.appendChild(letter);
