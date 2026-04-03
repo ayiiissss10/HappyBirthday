@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   const cake = document.querySelector(".cake");
-  const candleCountDisplay = document.getElementById("candleCount");
+  // const candleCountDisplay = document.getElementById("candleCount"); // dihapus
   let candles = [];
   let audioContext;
   let analyser;
   let microphone;
 
-    // Tampilkan pesan Happy Birthday
   const happyBirthdayMessage = document.createElement("h1");
   happyBirthdayMessage.textContent = "Happy Birthday Odi Sayang!";
   happyBirthdayMessage.style.textAlign = "center";
@@ -14,12 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   happyBirthdayMessage.style.marginBottom = "20px";
   document.body.insertBefore(happyBirthdayMessage, document.body.firstChild);
 
-  function updateCandleCount() {
-    const activeCandles = candles.filter(
-      (candle) => !candle.classList.contains("out")
-    ).length;
-    candleCountDisplay.textContent = activeCandles;
-  }
+  // function updateCandleCount() { ... } dihapus
 
   function addCandle(left, top) {
     const candle = document.createElement("div");
@@ -33,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cake.appendChild(candle);
     candles.push(candle);
-    updateCandleCount();
+    // updateCandleCount(); // dihapus
   }
 
   cake.addEventListener("click", function (event) {
@@ -54,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     let average = sum / bufferLength;
 
-    return average > 40; //
+    return average > 40;
   }
 
   function blowOutCandles() {
@@ -69,9 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    if (blownOut > 0) {
-      updateCandleCount();
-    }
+    // tidak perlu updateCandleCount lagi
   }
 
   if (navigator.mediaDevices.getUserMedia) {
